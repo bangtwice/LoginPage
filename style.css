@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+/* Define font variables for easy updates */
+:root {
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Poppins', sans-serif;
+    --decorative-font: 'Great Vibes', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('house.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 80px;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    backdrop-filter: blur(10px);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: var(--heading-font);
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+/* Add a decorative element under the heading */
+h2:after {
+    content: "welcome";
+    display: block;
+    font-family: var(--decorative-font);
+    font-size: 1.2em;
+    color: #2193b0;
+    margin-top: 5px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    font-family: var(--body-font);
+    font-weight: bold;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    font-family: var(--body-font);
+    font-weight: bold;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #2193b0;
+    font-weight: 500;
+}
+
+.error {
+    color: #ff3333;
+    font-size: 12px;
+    margin-top: 5px;
+    font-family: var(--body-font);
+    transition: all 0.3s ease-in-out;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.error:not(:empty) {
+    max-height: 50px;
+    margin-top: 5px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: var(--body-font);
+    font-weight: bold;
+}
+
+.remember-forgot label {
+    color: #666;
+    cursor: pointer;
+}
+
+.remember-forgot a {
+    color: #2193b0;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.remember-forgot a:hover {
+    color: #1a7a8c;
+    text-shadow: 0 0 1px rgba(26, 122, 140, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2193b0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    font-family: var(--body-font);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: #1a7a8c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(33, 147, 176, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    font-family: var(--body-font);
+    font-weight: bold;
+}
+
+.register-link a {
+    color: #2193b0;
+    text-decoration: none;
+    font-weight: 800;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.register-link a:hover {
+    color: #1a7a8c;
+    text-shadow: 0 0 1px rgba(26, 122, 140, 0.3);
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.nav-logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #2193b0;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover:before {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    background: #2193b0;
+}
+
+/* Update container to account for navbar */
+.container {
+    padding-top: 80px; /* Add padding to prevent content from hiding behind navbar */
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        padding-top: 140px; /* Increase padding for mobile view */
+    }
+
+    .nav-links a {
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+    }
+}
+
+/* Add global smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input focus effects */
+.input-group input:focus {
+    border-bottom: 2px solid #2193b0;
+    box-shadow: 0 1px 5px rgba(33, 147, 176, 0.2);
+}
+
+/* Checkbox transition */
+input[type="checkbox"] {
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+    transform: scale(1.1);
+}
+
+/* Hover effects for links */
+.remember-forgot a, .register-link a {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.remember-forgot a:hover, .register-link a:hover {
+    color: #1a7a8c;
+    text-shadow: 0 0 1px rgba(26, 122, 140, 0.3);
+}
+
+/* Input focus effects */
+.input-group input:focus {
+    border-bottom: 2px solid #2193b0;
+    box-shadow: 0 1px 5px rgba(33, 147, 176, 0.2);
+}
+
+/* Checkbox transition */
+input[type="checkbox"] {
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+    transform: scale(1.1);
+}
+
+/* Error message transitions */
+.error {
+    transition: all 0.3s ease-in-out;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.error:not(:empty) {
+    max-height: 50px;
+    margin-top: 5px;
+}
+
+/* Add this to your existing media query */
+@media (max-width: 768px) {
+    .nav-links a {
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+    }
+}
+
+/* Sign Up Button Styles */
+.signup-btn {
+    background: #2193b0;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.signup-btn:hover {
+    background: transparent !important;
+    border: 2px solid #2193b0 !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 5px 15px rgba(33, 147, 176, 0.3);
+}
+
+.signup-btn:active {
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+    .signup-btn {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links li:last-child {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+} 
